@@ -1,0 +1,1 @@
+<view class="news"><block wx:for="{{newsList}}" wx:for-item="item" wx:for-index="__i0__" wx:key="id"><uni-card vue-id="{{'1-'+__i0__}}" title="{{item.title}}" thumbnail="https://img-cdn-qiniu.dcloud.net.cn/new-page/uni.png" extra="{{item.date}}" is-shadow="{{true}}" bind:__l="__l" vue-slots="{{['default']}}">内容主体，可自定义内容及样式</uni-card></block></view>

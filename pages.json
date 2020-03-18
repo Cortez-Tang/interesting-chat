@@ -1,34 +1,53 @@
 {
 	"pages": [{
+		"path": "pages/login/login"
+	}, {
 		"path": "pages/index/index"
-		
+
 	}, {
 		"path": "pages/news/news"
-		
+
 	}, {
 		"path": "pages/account/account"
 	}],
 	"globalStyle": {
-		"navigationBarTextStyle": "white",
+		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "趣聊",
-		"navigationBarBackgroundColor": "#007AFF",
+		"navigationBarBackgroundColor": "#FFFFFF",
 		"backgroundColor": "#FFFFFF"
 	},
-	"tabBar":{
-		"color":"#666666",
-		"selectedColor":"#007AFF",
-		"list":[
-			{
-				"pagePath":"pages/index/index",
-				"text":"首页"
+	"tabBar": {
+		"color": "#666666",
+		"selectedColor": "#333333",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"text": "首页"
 			},
 			{
-				"pagePath":"pages/news/news",
-				"text":"动态"
+				"pagePath": "pages/news/news",
+				"text": "动态"
 			},
 			{
-				"pagePath":"pages/account/account",
-				"text":"我的"
+				"pagePath": "pages/account/account",
+				"text": "我的"
+			}
+		]
+	},
+	"easycom": {
+		"autoscan": true,
+		"custom": {
+			"uni-(.*)": "@/components/uni-$1/uni-$1.vue"
+		}
+	},
+	"condition": {
+		"current": 1,
+		"list": [{
+				"name": "动态",
+				"path": "pages/news/news"
+			},
+			{
+				"name": "登录",
+				"path": "pages/login/login"
 			}
 		]
 	}

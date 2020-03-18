@@ -1,0 +1,1 @@
+<view class="login data-v-73a39484"><text class="login-row1 data-v-73a39484">有趣的世界，</text><text class="login-row2 data-v-73a39484">寻找有趣的灵魂</text><button type="default" data-event-opts="{{[['tap',[['goRoute',['$event']]]]]}}" bindtap="__e" class="data-v-73a39484">加入我们</button><image src="../../static/20160806085922_hZSti.jpeg" class="data-v-73a39484"></image></view>

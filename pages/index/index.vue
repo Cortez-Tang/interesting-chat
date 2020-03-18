@@ -1,16 +1,10 @@
 <template>
-	<view class="container">
-		<uni-card title="uni-ui" note="Tips">
-			<template>
-				<view>
-					<text class="intro">本项目为包含uni-ui全部组件的项目，在pages.json内使用easycom通过正则匹配自动引入组件。以本页面为例，uni-card为自动导入组件，无需在页面内import即可使用，效果等同于页面内import。</text>
-				</view>
-				<view>
-					<text class="intro">详见：</text>
-					<uni-link :href="href" :text="href"></uni-link>
-				</view>
-			</template>
-		</uni-card>
+	<view class="home">
+		<swiper :indicator-dots="true"  :duration="1000" previous-margin="30rpx" next-margin="30rpx">
+			<swiper-item v-for="(url,index) in 4" :key="index">
+				<image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1584549103407&di=5ce3d9020b6ed2fb0e947f543e4baeae&imgtype=0&src=http%3A%2F%2Fimg2.imgtn.bdimg.com%2Fit%2Fu%3D1804142982%2C1901782595%26fm%3D214%26gp%3D0.jpg"></image>
+			</swiper-item>
+		</swiper>
 	</view>
 </template>
 
@@ -27,9 +21,20 @@
 	}
 </script>
 
-<style>
-	.intro {
-		font-size: 14px;
-		line-height: 24px;
+<style lang="scss" scoped>
+	.home {
+		swiper {
+			height: 300rpx;
+
+			swiper-item {
+				padding: 0 10rpx;
+				box-sizing: border-box;
+			}
+
+			image {
+				width: 100%;
+				height: 100%;
+			}
+		}
 	}
 </style>
