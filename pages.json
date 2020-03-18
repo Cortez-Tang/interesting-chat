@@ -1,0 +1,35 @@
+{
+	"pages": [{
+		"path": "pages/index/index"
+		
+	}, {
+		"path": "pages/news/news"
+		
+	}, {
+		"path": "pages/account/account"
+	}],
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "趣聊",
+		"navigationBarBackgroundColor": "#007AFF",
+		"backgroundColor": "#FFFFFF"
+	},
+	"tabBar":{
+		"color":"#666666",
+		"selectedColor":"#007AFF",
+		"list":[
+			{
+				"pagePath":"pages/index/index",
+				"text":"首页"
+			},
+			{
+				"pagePath":"pages/news/news",
+				"text":"动态"
+			},
+			{
+				"pagePath":"pages/account/account",
+				"text":"我的"
+			}
+		]
+	}
+}
