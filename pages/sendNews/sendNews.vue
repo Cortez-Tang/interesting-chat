@@ -1,10 +1,10 @@
 <template>
 	<view class="send-news">
-		<textarea :value="text" placeholder="请输入内容" />
+		<textarea :value="text" placeholder="#超级程序员的热门话题" />
 		<view class="image-list" >
 			<image :src="url" mode="aspectFill" v-for="(url , index) in news.imgList" :key="index"></image>
 		</view>
-		<text class="upload" @click="chooseImage">上传图片</text>
+		<a-upload @choose="chooseImage"></a-upload>
 	</view>
 </template>
 
@@ -19,14 +19,8 @@
 			};
 		},
 		methods: {
-			chooseImage() {
-				const _ = this
-				 uni.chooseImage({
-					success(res){
-						_.news.imgList = [ ..._.news.imgList, ...res.tempFilePaths ]
-						console.log(_.news.imgList,_.news.imgList.length)
-					}
-				})
+			chooseImage(imageList,filesList) {
+				console.log(imageList,filesList)
 			}
 		}
 	}
@@ -36,6 +30,14 @@
 .send-news{
 	width: 100%;
 	height: 100%;
+	
+	textarea{
+		width: 100%;
+		height: 400rpx;
+		padding: 30rpx;
+		box-sizing: border-box;
+		background-color: #FFFFFF;
+	}
 	
 	.image-list{
 		display: flex;

@@ -25,12 +25,35 @@
 /* 透明度 */
 /* 文章场景相关 */
 .news-head.data-v-77aff010 {
-  position: relative;
-  height: 360rpx;
+  height: 110rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  padding: 0 30rpx;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  background-color: #FFFFFF;
 }
-.news-head image.data-v-77aff010 {
-    width: 100%;
-    height: 100%;
+.news-head .title.data-v-77aff010 {
+    font-size: 32rpx;
+    font-weight: bold;
+}
+.news-head .value.data-v-77aff010 {
+    font-size: 32rpx;
+    color: #999999;
+}
+.news-head .send_btn.data-v-77aff010 {
+    margin-left: auto;
+    font-size: 28rpx;
+    color: #FFFFFF;
+    background-color: #1989fa;
+    width: 140rpx;
+    height: 50rpx;
+    text-align: center;
+    line-height: 50rpx;
+    font-weight: bold;
+    border-radius: 12rpx;
 }
 .news-content image.data-v-77aff010 {
   width: 100%;

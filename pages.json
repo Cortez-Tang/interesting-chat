@@ -10,10 +10,7 @@
 	}, {
 		"path": "pages/map/map"
 	}, {
-		"path": "pages/sendNews/sendNews",
-		"usingComponents": {
-		  "van-uploader": ""
-		}
+		"path": "pages/sendNews/sendNews"
 	}],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -53,7 +50,7 @@
 		}
 	},
 	"condition": {
-		"current": 2,
+		"current": 3,
 		"list": [{
 				"name": "动态",
 				"path": "pages/news/news"
@@ -65,6 +62,10 @@
 			{
 				"name": "地图",
 				"path": "pages/map/map"
+			},
+			{
+				"name":"发送动态",
+				"path":"pages/sendNews/sendNews"
 			}
 		]
 	}

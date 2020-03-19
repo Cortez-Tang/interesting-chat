@@ -21,4 +21,10 @@ export default {
 }
 /* #endif */
 
+page{
+	width: 100%;
+	height: 100%;
+	background-color: #F5F5F5;
+}
+
 </style>

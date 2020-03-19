@@ -1,11 +1,13 @@
 <template>
-	<view class="news-card"  @click="goRoute">
+	<view class="news-card">
 		<view class="news-card-head">
 			<image src="../../static/20160806085922_hZSti.jpeg"></image>
 			<text class="name">超级程序员</text>
 		</view>
-		<view class="news-card-image">
-			<image src="../../static/20160806085922_hZSti.jpeg" mode="aspectFill"></image>
+		<view class="news-card-image-list">
+			<view class="image-item" v-for="num in 4" :key="num">
+				<image src="../../static/20160806085922_hZSti.jpeg" mode="aspectFill"></image>
+			</view>
 		</view>
 		<view class="news-card-content">
 			<view class="news-card-content-baseInfo">
@@ -27,9 +29,9 @@
 					</view>
 				</view>
 				<view class="tab-list">
-				
+
 					<view class="comment">
-						
+
 					</view>
 				</view>
 			</view>
@@ -41,92 +43,107 @@
 	export default {
 		data() {
 			return {
-				
+
 			};
 		},
-		methods:{
-			goRoute(){
-				console.log('123')
-				uni.navigateTo({
-					// url:'../../pages/map/map'
-					url:'../../pages/sendNews/sendNews'
-				})
-			}
+		methods: {
+			
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
-.news-card{
-	width: 100%;
-	margin: 30rpx 0;
-	background-color: #FFFFFF;
-	box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1) ;
-	
-	&-head{
-		padding: 20rpx;
-		display: flex;
-		align-items: center;
-		
-		image{
-			width: 60rpx;
-			height: 60rpx;
-			border-radius: 50%;
-		}
-		
-		.name{
-			font-size: 32rpx;
-			font-weight: bold;
-			padding-left: 20rpx;
-		}
-	}
-		
-	&-image{
-		image{
-			width: 100%;
-			height: 500rpx;
-		}
-	}
-	
-	
-	
-	&-content{
-		padding: 20rpx;
-		font-size: 28rpx;
-		
-		&-baseInfo{
+	.news-card {
+		width: 100%;
+		margin: 30rpx 0;
+		background-color: #FFFFFF;
+		box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+
+		&-head {
+			padding: 20rpx;
 			display: flex;
-			justify-content:space-between;
-			.title{
+			align-items: center;
+
+			image {
+				width: 60rpx;
+				height: 60rpx;
+				border-radius: 50%;
+			}
+
+			.name {
 				font-size: 32rpx;
 				font-weight: bold;
-			}
-			.date {
-				color: #666666;
+				padding-left: 20rpx;
 			}
 		}
-		
-		&-text{
-			padding: 20rpx 0;
-			font-size: 28rpx;
+
+		&-image {
+			image {
+				width: 100%;
+				height: 500rpx;
+			}
 		}
-	
-		&-other{
+
+		&-image-list {
 			display: flex;
-			justify-content: space-between;
-			.good-list{
-				.good{
-					image{
-						width: 40rpx;
-						height: 40rpx;
-						overflow: hidden;
-						border-radius: 50%;
+
+			.image-item {
+				width: 25%;
+				height: 160rpx;
+				padding: 0 8rpx;
+				margin-bottom: 20rpx;
+				box-sizing: border-box;
+
+
+				image {
+					width: 100%;
+					height: 100%;
+				}
+			}
+		}
+
+
+
+		&-content {
+			padding: 20rpx;
+			font-size: 28rpx;
+
+			&-baseInfo {
+				display: flex;
+				justify-content: space-between;
+
+				.title {
+					font-size: 32rpx;
+					font-weight: bold;
+				}
+
+				.date {
+					color: #666666;
+				}
+			}
+
+			&-text {
+				padding: 20rpx 0;
+				font-size: 28rpx;
+			}
+
+			&-other {
+				display: flex;
+				justify-content: space-between;
+
+				.good-list {
+					.good {
+						image {
+							width: 40rpx;
+							height: 40rpx;
+							overflow: hidden;
+							border-radius: 50%;
+						}
 					}
 				}
 			}
 		}
-	}
-	
 
-}
+
+	}
 </style>
