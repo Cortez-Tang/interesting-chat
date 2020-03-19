@@ -47,5 +47,18 @@
             "urlCheck" : false,
             "es6" : true
         }
+    },
+    "mp-qq" : {
+        "appid" : "1110350732",
+        "setting" : {
+            "es6" : true
+        }
+    },
+    "h5" : {
+        "optimization" : {
+            "treeShaking" : {
+                "enable" : true
+            }
+        }
     }
 }

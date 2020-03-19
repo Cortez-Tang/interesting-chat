@@ -1,7 +1,7 @@
 .DS_Store
 node_modules
 .git
-/dist
+/unpackage/dist
 
 # local env files
 .env.local

@@ -3,7 +3,8 @@
     "pages/login/login",
     "pages/index/index",
     "pages/news/news",
-    "pages/account/account"
+    "pages/account/account",
+    "pages/map/map"
   ],
   "subPackages": [],
   "window": {
@@ -14,19 +15,26 @@
   },
   "tabBar": {
     "color": "#666666",
+    "backgroundColor": "#FFFFFF",
     "selectedColor": "#333333",
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页"
+        "text": "首页",
+        "iconPath": "static/icon-01.png",
+        "selectedIconPath": "static/icon-01-sel.png"
       },
       {
         "pagePath": "pages/news/news",
-        "text": "动态"
+        "text": "动态",
+        "iconPath": "static/icon-tx-sel.png",
+        "selectedIconPath": "static/icon-tx.png"
       },
       {
         "pagePath": "pages/account/account",
-        "text": "我的"
+        "text": "我的",
+        "iconPath": "static/icon-03.png",
+        "selectedIconPath": "static/icon-03-sel.png"
       }
     ]
   },

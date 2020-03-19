@@ -38,6 +38,7 @@
     left: 280rpx;
 }
 .login image.data-v-73a39484 {
+    position: absolute;
     width: 100%;
     height: 100%;
 }

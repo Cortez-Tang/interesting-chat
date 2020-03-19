@@ -1,8 +1,6 @@
 <template>
 	<view class="news">
-		<uni-card :title="item.title" thumbnail="https://img-cdn-qiniu.dcloud.net.cn/new-page/uni.png" :extra="item.date"  v-for="item in newsList" :key="item.id" :is-shadow="true">
-		    内容主体，可自定义内容及样式
-		</uni-card>
+		<a-news-card v-for="num in 4" :key="num"></a-news-card>
 	</view>
 </template>
 
@@ -40,8 +38,27 @@
 	}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .news{
+	&-head{
+		position: relative;
+		height: 360rpx;
+		
+		image{
+			width: 100%;
+			height: 100%;
+		}
+	}
 	
+	&-content{
+		image{
+			width: 100%;
+			height: 500rpx;
+		}
+		&-text{
+			padding: 20rpx 0;
+		}
+	}
 }
+
 </style>

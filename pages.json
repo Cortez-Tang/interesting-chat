@@ -3,12 +3,17 @@
 		"path": "pages/login/login"
 	}, {
 		"path": "pages/index/index"
-
 	}, {
 		"path": "pages/news/news"
-
 	}, {
 		"path": "pages/account/account"
+	}, {
+		"path": "pages/map/map"
+	}, {
+		"path": "pages/sendNews/sendNews",
+		"usingComponents": {
+		  "van-uploader": ""
+		}
 	}],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -18,29 +23,37 @@
 	},
 	"tabBar": {
 		"color": "#666666",
+		"backgroundColor": "#FFFFFF",
 		"selectedColor": "#333333",
 		"list": [{
 				"pagePath": "pages/index/index",
-				"text": "首页"
+				"text": "首页",
+				"iconPath": "static/icon-01.png",
+				"selectedIconPath": "static/icon-01-sel.png"
 			},
 			{
 				"pagePath": "pages/news/news",
-				"text": "动态"
+				"text": "动态",
+				"iconPath": "static/icon-tx-sel.png",
+				"selectedIconPath": "static/icon-tx.png"
 			},
 			{
 				"pagePath": "pages/account/account",
-				"text": "我的"
+				"text": "我的",
+				"iconPath": "static/icon-03.png",
+				"selectedIconPath": "static/icon-03-sel.png"
 			}
 		]
 	},
 	"easycom": {
 		"autoscan": true,
 		"custom": {
-			"uni-(.*)": "@/components/uni-$1/uni-$1.vue"
+			"uni-(.*)": "@/components/uni-$1/uni-$1.vue",
+			"a-(.*)": "@/components/a-$1/a-$1.vue"
 		}
 	},
 	"condition": {
-		"current": 1,
+		"current": 2,
 		"list": [{
 				"name": "动态",
 				"path": "pages/news/news"
@@ -48,6 +61,10 @@
 			{
 				"name": "登录",
 				"path": "pages/login/login"
+			},
+			{
+				"name": "地图",
+				"path": "pages/map/map"
 			}
 		]
 	}

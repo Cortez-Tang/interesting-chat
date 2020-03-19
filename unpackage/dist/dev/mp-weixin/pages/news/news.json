@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "uni-card": "/components/uni-card/uni-card"
+    "a-news-card": "/components/a-news-card/a-news-card"
   }
 }
