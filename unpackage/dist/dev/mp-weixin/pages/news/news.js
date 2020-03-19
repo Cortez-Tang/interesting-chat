@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   "a-news-card": () =>
-    __webpack_require__.e(/*! import() | components/a-news-card/a-news-card */ "components/a-news-card/a-news-card").then(__webpack_require__.bind(null, /*! @/components/a-news-card/a-news-card.vue */ 56))
+    __webpack_require__.e(/*! import() | components/a-news-card/a-news-card */ "components/a-news-card/a-news-card").then(__webpack_require__.bind(null, /*! @/components/a-news-card/a-news-card.vue */ 64))
 }
 var render = function() {
   var _vm = this

@@ -8525,7 +8525,7 @@ module.exports = {"_from":"@dcloudio/uni-stat@next","_id":"@dcloudio/uni-stat@2.
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/login/login": { "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/index/index": { "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/news/news": { "usingComponents": {}, "usingAutoImportComponents": { "a-news-card": "/components/a-news-card/a-news-card" } }, "pages/account/account": { "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/map/map": { "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/sendNews/sendNews": { "usingComponents": {}, "usingAutoImportComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "趣聊", "navigationBarBackgroundColor": "#FFFFFF", "backgroundColor": "#FFFFFF" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/login/login": {}, "pages/index/index": {}, "pages/news/news": {}, "pages/account/account": {}, "pages/map/map": {}, "pages/sendNews/sendNews": {} }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "趣聊", "navigationBarBackgroundColor": "#FFFFFF", "backgroundColor": "#FFFFFF" } };exports.default = _default;
 
 /***/ }),
 /* 8 */
