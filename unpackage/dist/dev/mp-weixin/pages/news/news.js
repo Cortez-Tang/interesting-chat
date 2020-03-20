@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   "a-news-card": () =>
-    __webpack_require__.e(/*! import() | components/a-news-card/a-news-card */ "components/a-news-card/a-news-card").then(__webpack_require__.bind(null, /*! @/components/a-news-card/a-news-card.vue */ 64))
+    __webpack_require__.e(/*! import() | components/a-news-card/a-news-card */ "components/a-news-card/a-news-card").then(__webpack_require__.bind(null, /*! @/components/a-news-card/a-news-card.vue */ 87))
 }
 var render = function() {
   var _vm = this
@@ -149,15 +149,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 var _default =
 {
   data: function data() {
     return {
-      newsList: [] };
+      newsList: [],
+      location: {},
+      markers: [] };
 
   },
   onReady: function onReady() {
     this.getNewsData();
+  },
+  onLoad: function onLoad() {
+    this.getLocation();
   },
   methods: {
     getNewsData: function () {var _getNewsData = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
@@ -181,8 +189,24 @@ var _default =
     goRoute: function goRoute() {
       console.log('123');
       uni.navigateTo({
-        // url:'../../pages/map/map'
         url: '../sendNews/sendNews' });
+
+    },
+    getLocation: function getLocation() {
+      var _ = this;
+      uni.getLocation({
+        type: 'gcj02',
+        success: function success(res) {
+          _.location = res;
+          _.markers.push({
+            id: '1231',
+            latitude: res.latitude,
+            longitude: res.longitude,
+            iconPath: '/static/icon-01-sel.png',
+            width: 20,
+            height: 20 });
+
+        } });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

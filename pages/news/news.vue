@@ -1,10 +1,13 @@
 <template>
 	<view class="news">
 		<view class="news-head">
-			<text class="title">#当前热门话题：</text>
-			<text class="value">超级程序员</text>
-			<view class="send_btn" @click="goRoute">
-				发表热评
+			<map :latitude="location.latitude" :longitude="location.longitude" :markers="markers"></map>
+			<view class="news-head-content">
+				<text class="title">#当前热门话题：</text>
+				<text class="value">超级程序员</text>
+				<view class="send_btn" @click="goRoute">
+					发表热评
+				</view>
 			</view>
 		</view>
 		<a-news-card v-for="num in 4" :key="num"></a-news-card>
@@ -15,11 +18,16 @@
 	export default {
 		data() {
 			return {
-				newsList: []
+				newsList: [],
+				location:{},
+				markers:[]
 			};
 		},
 		onReady() {
 			this.getNewsData()
+		},
+		onLoad() {
+			this.getLocation()
 		},
 		methods: {
 			async getNewsData() {
@@ -43,11 +51,26 @@
 			goRoute() {
 				console.log('123')
 				uni.navigateTo({
-					// url:'../../pages/map/map'
 					url: '../sendNews/sendNews'
 				})
+			},
+			getLocation() {
+				const _ = this
+				uni.getLocation({
+					type:'gcj02',
+					success(res) {
+						_.location = res
+						_.markers.push({
+							id:'1231',
+							latitude:res.latitude,
+							longitude:res.longitude,
+							iconPath:'/static/icon-01-sel.png',
+							width:20,
+							height:20
+						})
+					}
+				})
 			}
-
 		}
 	}
 </script>
@@ -55,34 +78,44 @@
 <style lang="scss" scoped>
 	.news {
 		&-head {
-			height: 110rpx;
-			display: flex;
-			padding: 0 30rpx;
-			align-items: center;
+			
 			background-color: #FFFFFF;
-
-			.title {
-				font-size: 32rpx;
-				font-weight: bold;
+			
+			map{
+				width: 100%;
+				height: 300rpx;
 			}
 
-			.value {
-				font-size: 32rpx;
-				color: #999999;
+			&-content{
+				height: 110rpx;
+				display: flex;
+				padding: 0 30rpx;
+				align-items: center;
+				.title {
+					font-size: 32rpx;
+					font-weight: bold;
+				}
+				
+				.value {
+					font-size: 32rpx;
+					color: #999999;
+				}
+				
+				.send_btn {
+					margin-left: auto;
+					font-size: 28rpx;
+					color: #FFFFFF;
+					background-color: #1989fa;
+					width: 140rpx;
+					height: 50rpx;
+					text-align: center;
+					line-height: 50rpx;
+					font-weight: bold;
+					border-radius: 12rpx;
+				}
 			}
 
-			.send_btn {
-				margin-left: auto;
-				font-size: 28rpx;
-				color: #FFFFFF;
-				background-color: #1989fa;
-				width: 140rpx;
-				height: 50rpx;
-				text-align: center;
-				line-height: 50rpx;
-				font-weight: bold;
-				border-radius: 12rpx;
-			}
+
 		}
 
 		&-content {

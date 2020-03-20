@@ -2,7 +2,7 @@
 	<view class="map">
 		<!-- <map :latitude="location.latitude" :longitude="location.longitude"  :show-compass="true" :enable-3D="true" ></map> -->
 		<!-- <uni-popup ref="popup" type="bottom">底部弹出 Popup</uni-popup> -->
-		<web-view src="https://apis.map.qq.com/tools/locpicker?search=1&type=1&key=O5ABZ-XIXYD-JSB42-HZFQE-H2YRO-J7F2T&referer=趣聊-全部端"></web-view>
+		<web-view src="http://192.168.50.129:8080/"></web-view>
 	</view>
 </template>
 

@@ -27,7 +27,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 4,
 			"list": [
 				{
 					"name": "动态",
@@ -48,6 +48,12 @@
 					"name": "发送动态",
 					"id": 3,
 					"pathName": "pages/sendNews/sendNews"
+				},
+				{
+					"id": 4,
+					"name": "pages/news/news",
+					"pathName": "pages/news/news",
+					"query": ""
 				}
 			]
 		}

@@ -86,10 +86,10 @@
 
 		&-image-list {
 			display: flex;
-
+			flex-wrap: wrap;
 			.image-item {
-				width: 25%;
-				height: 160rpx;
+				width: 33.333333%;
+				height: 200rpx;
 				padding: 0 8rpx;
 				margin-bottom: 20rpx;
 				box-sizing: border-box;
