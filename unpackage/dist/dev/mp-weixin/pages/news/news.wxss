@@ -24,6 +24,16 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.news-chart.data-v-77aff010 {
+  width: 750rpx;
+  height: 300rpx;
+  background-color: #FFFFFF;
+  padding-top: 30rpx;
+}
+.news-chart canvas.data-v-77aff010 {
+    width: 750rpx;
+    height: 300rpx;
+}
 .news-head.data-v-77aff010 {
   background-color: #FFFFFF;
 }

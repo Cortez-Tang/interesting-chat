@@ -4,19 +4,23 @@
 			<image src="../../static/20160806085922_hZSti.jpeg"></image>
 			<text class="name">超级程序员</text>
 		</view>
-		<view class="news-card-image-list">
-			<view class="image-item" v-for="num in 4" :key="num">
-				<image src="../../static/20160806085922_hZSti.jpeg" mode="aspectFill"></image>
+		<view class="news-card-image" v-if="item.imageList.length === 1">
+			<image :src="item.imageList[0]" mode="aspectFill" @click="previewImage(0)"></image>
+		</view>
+		<view class="news-card-image-list" v-else-if="item.imageList.length>1">
+			<view class="image-item" v-for="(url,index) in item.imageList" :key="index">
+				<image :src="url" @click="previewImage(index)" mode="aspectFill"></image>
 			</view>
 		</view>
 		<view class="news-card-content">
 			<view class="news-card-content-baseInfo">
-				<text class="title">#超级程序员的热议话题6</text>
-				<text class="date">8/14 12:44</text>
+				<text class="title">#超级程序员的热议话题</text>
+				<text class="date">{{ item.date }}</text>
 			</view>
 			<view class="news-card-content-text">
-				<text>
-					是的撒as打上是大奥术大师大所大所多撒大所多撒多所多所多群无多所多撒阿大声道大大的阿松大的撒的撒大是的撒但是阿达阿松大阿达阿松大阿松大阿达是的撒的撒的阿松大啊倒萨大苏打大撒的大声地
+				<audio :src="item.recorderUrl" name="语音" :action="audioAction" controls author="超级程序员" v-if="item.recorderUrl" ></audio>
+				<text v-else>
+					{{ item.text }}
 				</text>
 			</view>
 			<view class="news-card-content-other">
@@ -41,13 +45,27 @@
 
 <script>
 	export default {
+		props: {
+			item: {
+				type: Object,
+				default: () => ({})
+			}
+		},
 		data() {
 			return {
 
 			};
 		},
 		methods: {
-			
+			previewImage(index) {
+				const _ = this
+				uni.previewImage({
+					current: index,
+					urls: [..._.item.imageList],
+					indicator:'number',
+					loop:true
+				})
+			}
 		}
 	}
 </script>
@@ -87,6 +105,7 @@
 		&-image-list {
 			display: flex;
 			flex-wrap: wrap;
+
 			.image-item {
 				width: 33.333333%;
 				height: 200rpx;
@@ -130,6 +149,7 @@
 			&-other {
 				display: flex;
 				justify-content: space-between;
+				padding-top: 20rpx;
 
 				.good-list {
 					.good {

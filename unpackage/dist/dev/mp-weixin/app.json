@@ -39,6 +39,11 @@
       }
     ]
   },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置判断远近的显示。"
+    }
+  },
   "usingComponents": {},
-  "sitemapLocation": "sitemap48.json"
+  "sitemapLocation": "sitemap9.json"
 }
