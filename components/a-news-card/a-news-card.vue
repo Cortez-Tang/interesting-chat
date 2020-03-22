@@ -7,10 +7,14 @@
 		<view class="news-card-image" v-if="item.imageList.length === 1">
 			<image :src="item.imageList[0]" mode="aspectFill" @click="previewImage(0)"></image>
 		</view>
+		
 		<view class="news-card-image-list" v-else-if="item.imageList.length>1">
 			<view class="image-item" v-for="(url,index) in item.imageList" :key="index">
 				<image :src="url" @click="previewImage(index)" mode="aspectFill"></image>
 			</view>
+		</view>
+		<view class="news-card-video" v-else-if="item.videoUrl">
+			<video :src="item.videoUrl" controls></video>
 		</view>
 		<view class="news-card-content">
 			<view class="news-card-content-baseInfo">
@@ -98,7 +102,7 @@
 		&-image {
 			image {
 				width: 100%;
-				height: 500rpx;
+				height: 400rpx;
 			}
 		}
 
@@ -121,7 +125,15 @@
 			}
 		}
 
-
+		&-video{
+			width: 100%;
+			height: 360rpx;
+			
+			video{
+				width: 100%;
+				height: 100%;
+			}
+		}
 
 		&-content {
 			padding: 20rpx;

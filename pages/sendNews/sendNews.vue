@@ -11,15 +11,17 @@
 				<text @click.self="handleSend">发送</text>
 			</view>
 		</view>
-		<view class="text">
+		<view class="text"  @touchend="onEnd">
 			<view class="recorder-body" v-if="recorderUrl!==''">
 				<view class="title">#超级程序员的热门话题</view>
 				<audio :src="recorderUrl" name="语音" :action="audioAction" controls author="超级程序员"></audio>
 			</view>
 			<textarea :value="text" placeholder="#超级程序员的热门话题" @input="onInput" v-else />
-			<image src="../../static/_record.png" @touchstart="onStart" @touchend="onEnd"></image>
+			<view >
+				<image src="../../static/_record.png" @touchstart="onStart"></image>
+			</view>
 		</view>
-		<a-upload @choose="chooseImage"></a-upload>
+		<a-upload @choose="choose"></a-upload>
 	</view>
 </template>
 
@@ -32,7 +34,9 @@
 				location: {},
 				markers: [],
 				recorder:null,
-				recorderUrl:''
+				recorderUrl:'',
+				recorderLimit:true,
+				videoUrl:''
 			};
 		},
 		computed:{
@@ -48,12 +52,17 @@
 			this.getLocation()
 			this.getRecorder()
 			this.recorder.onStop((res)=>{
+				console.log('stop',res)
 				this.recorderUrl = res.tempFilePath;
 			})
 		},
 		methods: {
-			chooseImage(imageList,filesList) {
-				this.imgList = imageList
+			choose(files,type) {
+				if(type === 'image'){
+					this.imgList = files
+				} else {
+					this.videoUrl = files
+				}
 			},
 			onInput(e) {
 				this.text = e.detail.value
@@ -64,7 +73,8 @@
 					text:this.text,
 					imageList:this.imgList,
 					date:`${date.getMonth()+1}/${date.getDate()}  ${date.getHours()}:${date.getMinutes()}`,
-					recorderUrl:this.recorderUrl
+					recorderUrl:this.recorderUrl,
+					videoUrl:this.videoUrl
 				})
 				
 				uni.navigateBack({
@@ -123,14 +133,23 @@
 			},
 			onStart() {
 				const _ = this
-				
+				_.recorderLimit = true
 				uni.getSetting({
 					success(res){
 						if(res.authSetting['scope.record']){
-							_.recorder.start({})
-							uni.showLoading({
-								title:'录音中……'
-							})
+							if(_.recorderLimit){
+								console.log('开始')
+								_.recorder.start({})
+								uni.showLoading({
+									title:'长按录音…'
+								})
+							}else{
+								uni.showToast({
+									title:'录制时间太短！',
+									mask:true,
+									icon:'none'
+								})
+							}
 						}else{
 							uni.authorize({
 								scope:'scope.record',
@@ -152,8 +171,10 @@
 				
 			},
 			onEnd() {
+				this.recorderLimit = false
 				this.recorder.stop()
 				uni.hideLoading()
+				console.log(this.recorderLimit)
 			}
 		}
 	}

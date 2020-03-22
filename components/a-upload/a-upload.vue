@@ -3,11 +3,12 @@
 		<view class="image-item" v-for="(url, index) in imageList" :key="index" @click="previewImage(index)">
 			<image :src="url" mode="aspectFill"></image>
 		</view>
-		<view class=" image-item" @click="chooseImage">
+		<view class=" image-item" @click="choose">
 			<view class="add-image">
 				<uni-icons type="camera" size="30"></uni-icons>
 			</view>
 		</view>
+		<video :src="videoUrl" v-if="videoUrl" controls></video>
 	</view>
 </template>
 
@@ -16,29 +17,65 @@
 		data() {
 			return {
 				imageList: [],
-				filesList: [],
+				videoUrl: ''
 			}
 		},
 		methods: {
+			choose() {
+				const _ = this
+				uni.showActionSheet({
+					itemList: ['相片', '视频'],
+					success(res) {
+						if (res.tapIndex === 0) {
+							if (_.videoUrl!=='') {
+								uni.showToast({
+									title: '选择视频后，不可再选照片！',
+									icon: 'none'
+								})
+								return
+							}
+							_.chooseImage()
+						} else {
+							debugger
+							if (_.imageList.length > 0) {
+								uni.showToast({
+									title: '选择照片后，不可再选视频！',
+									icon: 'none'
+								})
+								return
+							}
+							_.chooseVideo()
+						}
+					}
+				})
+			},
 			chooseImage() {
 				const _ = this
 				uni.chooseImage({
 					success(res) {
 						_.imageList = [..._.imageList, ...res.tempFilePaths]
-						_.filesList = [..._.filesList, ...res.tempFiles]
-						
-						_.$emit('choose',res.tempFilePaths,res.tempFiles)
-						
+						_.$emit('choose', _.imageList,'image')
+
+					}
+				})
+			},
+			chooseVideo() {
+				const _ = this
+				uni.chooseVideo({
+					success(res) {
+						console.log(res)
+						_.videoUrl = res.tempFilePath
+						_.$emit('choose', _.videoUrl,'video')
 					}
 				})
 			},
 			previewImage(index) {
 				const _ = this
 				uni.previewImage({
-					current:index,
-					urls:_.imageList,
-					indicator:'number',
-					loop:true
+					current: index,
+					urls: _.imageList,
+					indicator: 'number',
+					loop: true
 				})
 			}
 		}
@@ -75,5 +112,11 @@
 			background-color: #f7f8fa;
 			border-radius: 24rpx;
 		}
+
+		video {
+			width: 750rpx;
+			height: 360rpx;
+		}
+
 	}
 </style>
